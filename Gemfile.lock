@@ -27,6 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    bcrypt-ruby (3.0.1)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.1)
@@ -118,6 +119,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 4.0.0)
   geocoder
   jbuilder (~> 1.2)
