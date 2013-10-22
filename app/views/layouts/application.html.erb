@@ -2,12 +2,45 @@
 <html>
 <head>
   <title>Dinr</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 70%; width: 70%; margin: 0 auto; }
+    </style>
+    <script type="text/javascript">
+      function initialize() {
+    var mapOptions = {
+      scrollwheel: false,
+    zoom: 14,
+    center: new google.maps.LatLng(40.7408671, -73.9919505),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+}
+
+function loadScript() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initialize";
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+    </script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h1 style="font-size: 80px; font-family: helvetica;">dinr.</h1>
+<nav>
+  <%if logged_in? %>
+  <ul>
+    <li><%= link_to 'Logout', session_path, :method => :delete %></li>
+  </ul>
+  <%end%>
+  </nav>
 <%= yield %>
 
 </body>
