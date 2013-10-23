@@ -4,4 +4,14 @@
 </div>
 
 <%= link_to("edit", edit_user_path)%>
+
+<div>
+ <h3>My Fav.e</h3> 
+<% for faves in @user.restaurants do %>
+  <%= faves.camis %>
+  <%= faves.grade %>
+  <%= faves.points %>
+  <%= link_to 'Vie.w', restaurant_path(faves) %>
+  <%= link_to 'Remov.e', unfavorite_restaurant_path(faves), :method => :delete %>  
+<% end %>
 </div>

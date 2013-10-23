@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dinr</title>
+  <title>Din.r</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
@@ -33,15 +33,22 @@ window.onload = loadScript;
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1 style="font-size: 80px; font-family: helvetica;">dinr.</h1>
-<nav>
-  <%if logged_in? %>
-  <ul>
-    <li><%= link_to 'Logout', session_path, :method => :delete %></li>
-  </ul>
-  <%end%>
-  </nav>
-<%= yield %>
+  <div class="container" style="width:960px">
+    <div class = "banner">
+      <%= link_to "din.r", root_path , class: "logo"%>
+      <% unless logged_in? %>
+      <%= link_to 'Sign Up', new_user_path %>
+      <%= link_to 'Sign In', new_session_path %>
+      <%end%>
+      <%= link_to 'Sho.w', restaurants_path %>
 
+      <%if logged_in? %>
+        <%= link_to 'Logout', session_path, :method => :delete %>
+      <%end%>
+    </div>
+
+  
+<%= yield %>
+  </div>
 </body>
 </html>

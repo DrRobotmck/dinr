@@ -2,16 +2,41 @@
 <div id="map-canvas">
 </div>
 
-<div style="margin: 0 auto; display: inline;">
-<% for resto in @rest do %>
-  <h1 style="line-height:0px;"><%= resto.camis %></h1>
-  <h3 style="display: inline"><%= resto.address %></h3>
- <h3 style="display: inline"> <%= resto.phone %></h3>
- <h3 style="display: inline"> <%= resto.date %></h3>
-  <h3 style="display: inline"><%= resto.points %></h2>
-  <h1 style="display: inline"><%= resto.grade %></h1>
-  <%= resto.long %><%= resto.lat %>
-  <%= link_to "View", restaurant_path(resto)%>
-<%end%>
 
+
+<div class="container" style="width:960px">
+  <div style="border: red solid 2px; width: 300px; height:600px; position:relative; float:left;overflow: scroll;" class= "good">
+    <% for resto in @rest do %>
+  <ul>
+    <%if resto.points.to_i <= 16 %>
+      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+    <%end%>
+  </ul>
+  <%end%>  
 </div>
+
+
+<div style="border: blue solid 2px;width: 300px; height:600px;overflow: scroll;float: left;" class = "bad">
+  <% for resto in @rest do %>
+  <ul>
+    <%if (resto.points.to_i > 16 && resto.points.to_i <=27) %>
+      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+    <%end%>
+  </ul>
+  <%end%>
+</div>
+
+
+<div style="border: green solid 2px; width:300px;height:600px;overflow: scroll;float:left;" class = "ugly">
+ <% for resto in @rest do %> 
+  <ul>
+    <%if resto.points.to_i > 27%>
+      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+    <%end%>
+  </ul>
+  <%end%>
+</div>
+</div>
+  
+
+

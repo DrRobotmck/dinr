@@ -11,7 +11,11 @@
   <h3 style=><%= @rest.points %></h2>
   <h1 style=><%= @rest.grade %></h1>
   <%= @rest.long %><%= @rest.lat %>
-  <%= link_to "View All", restaurants_path%>
+  <%= link_to "View All", restaurants_path %>
 
+<% if logged_in? %>
+   <%= link_to 'Fav.e', favorite_restaurant_path(@rest), :method => :post %>
+   <%= link_to 'Min.e', user_path(session[:user_id]) %>
+ <%end%>
 
 </div>
