@@ -1,1 +1,17 @@
-<div id="map-canvas"/>
+
+<div id="map-canvas">
+</div>
+
+<div style="margin: 0 auto; display: inline;">
+
+  <h1 style=><%= @rest.camis %></h1>
+  <h3 style=><%= @rest.address %></h3>
+ <h3 style=> <%= @rest.phone %></h3>
+ <h3 style=> <%= @rest.date %></h3>
+  <h3 style=><%= @rest.points %></h2>
+  <h1 style=><%= @rest.grade %></h1>
+  <%= @rest.long %><%= @rest.lat %>
+  <%= link_to "View All", restaurants_path%>
+
+
+</div>

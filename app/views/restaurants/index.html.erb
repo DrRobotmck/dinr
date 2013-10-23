@@ -1,1 +1,17 @@
-<div id="map-canvas"/>
+
+<div id="map-canvas">
+</div>
+
+<div style="margin: 0 auto; display: inline;">
+<% for resto in @rest do %>
+  <h1 style="line-height:0px;"><%= resto.camis %></h1>
+  <h3 style="display: inline"><%= resto.address %></h3>
+ <h3 style="display: inline"> <%= resto.phone %></h3>
+ <h3 style="display: inline"> <%= resto.date %></h3>
+  <h3 style="display: inline"><%= resto.points %></h2>
+  <h1 style="display: inline"><%= resto.grade %></h1>
+  <%= resto.long %><%= resto.lat %>
+  <%= link_to "View", restaurant_path(resto)%>
+<%end%>
+
+</div>

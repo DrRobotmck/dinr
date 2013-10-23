@@ -1,7 +1,9 @@
 Dinr::Application.routes.draw do
   root 'static#index'
-  resources :users, except: [:index]
+  resources :users, except: [:index] do
+    # resources :favorites, only: [:index, :destroy]
+  end
   resource :session, only: [:new, :create, :destroy]
-  resources :favorites, only: [:new, :show, :edit, :update, :destroy]
-  resources :restaurant, only: [:show, :index]
+  
+  resources :restaurants, only: [:show, :index]
 end

@@ -1,0 +1,11 @@
+<div class = "favorites"> 
+
+<ul>
+
+<% for faves in @favorites do %>
+<li><%= link_to faves.name, restaurants_path %></li>  
+<%end%>
+
+</ul>
+
+</div>
