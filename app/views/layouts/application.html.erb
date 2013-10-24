@@ -6,7 +6,7 @@
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 70%; width: 70%; margin: 0 auto; }
+      #map-canvas { height: 650px; width: 650px; margin: 0 auto; }
     </style>
     <script type="text/javascript">
       function initialize() {
@@ -33,7 +33,7 @@ window.onload = loadScript;
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container" style="width:960px">
+  <div class="container" style="width:960px;">
     <div class = "banner">
       <%= link_to "din.r", root_path , class: "logo"%>
       <% unless logged_in? %>

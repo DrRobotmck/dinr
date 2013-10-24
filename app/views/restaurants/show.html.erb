@@ -1,16 +1,29 @@
 
-<div id="map-canvas">
+<div style="float:left;margin-left:30px;"id="map">
+  <%if @rest.points.to_i <= 16%>
+    <%colour = "green"%>
+    <%elsif (@rest.points.to_i > 16 && @rest.points.to_i <= 27)%>
+    <%colour = "yellow"%>
+    <%else%>
+    <%colour = "red"%>
+    <%end%>
+
+
+
+  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @rest.long %>,<%= @rest.lat %>&zoom=15&size=400x400&maptype=roadmap
+&markers=color:<%=colour%>%7Clabel:S%7C<%= @rest.long %>,<%= @rest.lat %>&sensor=false">
 </div>
 
-<div style="margin: 0 auto; display: inline;">
+<div style="margin: 0 auto; display: inline; width: 500px; height:500px; float: right; margin-left:10px;">
 
   <h1 style=><%= @rest.camis %></h1>
+  <h1 style=><%= @rest.grade %></h1>
   <h3 style=><%= @rest.address %></h3>
- <h3 style=> <%= @rest.phone %></h3>
+  <h4 style=> <%= @rest.phone %></h4>
  <h3 style=> <%= @rest.date %></h3>
   <h3 style=><%= @rest.points %></h2>
-  <h1 style=><%= @rest.grade %></h1>
-  <%= @rest.long %><%= @rest.lat %>
+  
+  
   <%= link_to "View All", restaurants_path %>
 
 <% if logged_in? %>
