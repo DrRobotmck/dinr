@@ -9,7 +9,7 @@
     <% colour = "red" %>
     <%end%>
 
-<div class="restaurant"style="background:url(<%= uri %>);">
+<div class="restaurant"style="opacity: .7;background:url(<%= uri %>);">
 
 
 <div class= "static_map">
@@ -22,17 +22,17 @@
 
   <h1 class="rest" style=><%= @rest.camis %></h1>
   <h1 class="rest" style=><%= @rest.grade %></h1>
-  <h2 class="rest" style=><%= @rest.points %></h2>
+  <h1 class="rest" style=><%= @rest.points %></h1>
   <h4 class="rest" style=>Add: <%= @rest.address %></h4>
   <h4 class="rest" style=>Ph: <%= @rest.phone %></h4>
   <h4 class="rest"style=>Inspected: <%= @rest.date %></h4>
   
   
   
-  <%= link_to "View All", restaurants_path, class: "links" %> ÷
+  <%= link_to "View All", restaurants_path, class: "links" %> 
 
 <% if logged_in? %>
-   <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%> ÷
+   <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%>
    <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
  <%end%>
 
