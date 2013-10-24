@@ -6,12 +6,16 @@
 <%= link_to("edit", edit_user_path)%>
 
 <div>
- <h3>My Fav.e</h3> 
-<% for faves in @user.restaurants do %>
-  <%= faves.camis %>
-  <%= faves.grade %>
-  <%= faves.points %>
-  <%= link_to 'Vie.w', restaurant_path(faves) %>
-  <%= link_to 'Remov.e', unfavorite_restaurant_path(faves), :method => :delete %>  
-<% end %>
+ <h3>Grub List</h3> 
+
+    <% for faves in @user.restaurants do %>
+      <p>
+      <h3 class="favorite"><%= faves.camis %> </h3>
+      <h3 class="favorite"><%= faves.grade %></h3>
+      <h3 class="favorite"><%= faves.points %></h3>
+      <%= link_to 'View', restaurant_path(faves), class: "links" %>
+      <%= link_to 'Remove', unfavorite_restaurant_path(faves), :method => :delete, class: "links" %>
+      </p>  
+    
+  <%end%>
 </div>

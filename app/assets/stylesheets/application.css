@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+body{
+  font-family: helvetica;
+  font-weight: bold;
+}
 .logo{
   color:black;
   font-size: 80px;
@@ -19,3 +23,52 @@
   font-family: helvetica;
   font-weight: bold;
 }
+.links{
+  color: black;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.links:hover{
+  font-size: 20px;
+}
+h3.restaurant{
+  text-align: center;
+  line-height: 20px;
+}
+.good{
+  border: red solid 4px;
+  border-radius: 5px; 
+  width: 290px; 
+  height:800px; 
+  float:left;
+  overflow: scroll; 
+  margin-left: 15px; 
+  margin-top:20px;
+}
+.bad{
+  border: red solid 4px;
+  border-radius: 5px; 
+  width: 290px; 
+  height:800px; 
+  float:left;
+  overflow: scroll; 
+  margin-left: 15px; 
+  margin-top:20px;
+}
+.ugly{
+  border: red solid 4px;
+  border-radius: 5px; 
+  width: 290px; 
+  height:800px; 
+  float:left;
+  overflow: scroll; 
+  margin-left: 15px; 
+  margin-top:20px;
+}
+.map{
+  width: 650px;
+  height: 650px;
+  margin: 0 auto;
+}
+
+

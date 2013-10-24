@@ -3,31 +3,7 @@
 <head>
   <title>Din.r</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 650px; width: 650px; margin: 0 auto; }
-    </style>
-    <script type="text/javascript">
-      function initialize() {
-    var mapOptions = {
-      scrollwheel: false,
-    zoom: 14,
-    center: new google.maps.LatLng(40.7408671, -73.9919505),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-}
-
-function loadScript() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = "http://maps.googleapis.com/maps/api/js?key=&sensor=false&callback=initialize";
-  document.body.appendChild(script);
-}
-
-window.onload = loadScript;
-    </script>
+  
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -40,7 +16,7 @@ window.onload = loadScript;
       <%= link_to 'Sign Up', new_user_path %>
       <%= link_to 'Sign In', new_session_path %>
       <%end%>
-      <%= link_to 'Sho.w', restaurants_path %>
+      <%= link_to 'The Land of Grub', restaurants_path %>
 
       <%if logged_in? %>
         <%= link_to 'Logout', session_path, :method => :delete %>

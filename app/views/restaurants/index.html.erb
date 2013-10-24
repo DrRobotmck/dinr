@@ -1,36 +1,33 @@
 
-
-<div style="clear:both"id="map-canvas">
+<div class="map">
+<iframe width="650" height="650" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col8+from+1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0&amp;viz=MAP&amp;h=false&amp;lat=40.737331725756285&amp;lng=-73.9795617103872&amp;t=1&amp;z=14&amp;l=col8&amp;y=2&amp;tmplt=2&amp;hml=ONE_COL_LAT_LNG"></iframe>
 </div>
-<div style="border: red solid 2px; width: 300px; height:800px; float:left;overflow: scroll; margin-left: 15px; margin-top:20px;" class= "good">
+<div class= "good">
     <% for resto in @rest do %>
-  <ul>
     <%if resto.points.to_i <= 16 %>
-      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
     <%end%>
-  </ul>
+  
   <%end%>  
 </div>
 
 
-<div style="border: blue solid 2px;width: 300px; height:800px;overflow: scroll;float: left; margin-left: 15px; margin-top:20px;" class = "bad">
+<div class = "bad">
   <% for resto in @rest do %>
-  <ul>
+  
     <%if (resto.points.to_i > 16 && resto.points.to_i <=27) %>
-      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
     <%end%>
-  </ul>
+  
   <%end%>
 </div>
 
 
-<div style="border: green solid 2px; width:300px;height:800px;overflow: scroll;float:left;margin-left: 15px; margin-top:20px;" class = "ugly">
+<div class = "ugly">
  <% for resto in @rest do %> 
-  <ul>
     <%if resto.points.to_i > 27%>
-      <li><h3 style="line-height:0px;"><%= resto.camis %></h3><%= link_to "View", restaurant_path(resto)%></li>
+      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
     <%end%>
-  </ul>
   <%end%>
 </div>
   

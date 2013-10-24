@@ -16,19 +16,20 @@
 
 <div style="margin: 0 auto; display: inline; width: 500px; height:500px; float: right; margin-left:10px;">
 
-  <h1 style=><%= @rest.camis %></h1>
-  <h1 style=><%= @rest.grade %></h1>
-  <h3 style=><%= @rest.address %></h3>
-  <h4 style=> <%= @rest.phone %></h4>
- <h3 style=> <%= @rest.date %></h3>
-  <h3 style=><%= @rest.points %></h2>
+  <h1 class="rest-name" style=><%= @rest.camis %></h1>
+  <h1 class="rest-grade" style=><%= @rest.grade %></h1>
+  <h2 class="rest-points" style=><%= @rest.points %></h2>
+  <h4 class="rest-address" style=>Add: <%= @rest.address %></h4>
+  <h4 class="rest-phone" style=>Ph: <%= @rest.phone %></h4>
+  <h3 class="rest-date"style=>Date Inspected: <%= @rest.date %></h3>
+  
   
   
   <%= link_to "View All", restaurants_path %>
 
 <% if logged_in? %>
-   <%= link_to 'Fav.e', favorite_restaurant_path(@rest), :method => :post %>
-   <%= link_to 'Min.e', user_path(session[:user_id]) %>
+   <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%>
+   <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
  <%end%>
 
 </div>
