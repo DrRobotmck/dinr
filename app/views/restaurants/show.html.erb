@@ -1,35 +1,40 @@
-
-<div style="float:left;margin-left:30px;"id="map">
-  <%if @rest.points.to_i <= 16%>
-    <%colour = "green"%>
+<%if @rest.points.to_i <= 16%>
+    <%uri = "http://farm4.staticflickr.com/3817/10463809513_ebb4dd6cac_o.jpg"%>
+    <% colour= "green" %>
     <%elsif (@rest.points.to_i > 16 && @rest.points.to_i <= 27)%>
-    <%colour = "yellow"%>
+    <%uri = "http://farm8.staticflickr.com/7432/10463972066_e0d62fac8f_o.jpg"%>
+    <% colour = "yellow" %>
     <%else%>
-    <%colour = "red"%>
+    <%uri = "http://farm3.staticflickr.com/2844/10463809563_ed404c63ee_o.jpg"%>
+    <% colour = "red" %>
     <%end%>
 
+<div class="restaurant"style="background:url(<%= uri %>);">
 
 
+<div class= "static_map">
+<!-- static map -->
   <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @rest.long %>,<%= @rest.lat %>&zoom=15&size=400x400&maptype=roadmap
 &markers=color:<%=colour%>%7Clabel:S%7C<%= @rest.long %>,<%= @rest.lat %>&sensor=false">
 </div>
 
-<div style="margin: 0 auto; display: inline; width: 500px; height:500px; float: right; margin-left:10px;">
+<div class="rest_info">
 
-  <h1 class="rest-name" style=><%= @rest.camis %></h1>
-  <h1 class="rest-grade" style=><%= @rest.grade %></h1>
-  <h2 class="rest-points" style=><%= @rest.points %></h2>
-  <h4 class="rest-address" style=>Add: <%= @rest.address %></h4>
-  <h4 class="rest-phone" style=>Ph: <%= @rest.phone %></h4>
-  <h3 class="rest-date"style=>Date Inspected: <%= @rest.date %></h3>
+  <h1 class="rest" style=><%= @rest.camis %></h1>
+  <h1 class="rest" style=><%= @rest.grade %></h1>
+  <h2 class="rest" style=><%= @rest.points %></h2>
+  <h4 class="rest" style=>Add: <%= @rest.address %></h4>
+  <h4 class="rest" style=>Ph: <%= @rest.phone %></h4>
+  <h4 class="rest"style=>Inspected: <%= @rest.date %></h4>
   
   
   
-  <%= link_to "View All", restaurants_path %>
+  <%= link_to "View All", restaurants_path, class: "links" %> ÷
 
 <% if logged_in? %>
-   <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%>
+   <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%> ÷
    <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
  <%end%>
 
+</div>
 </div>
