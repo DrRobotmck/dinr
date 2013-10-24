@@ -19,7 +19,6 @@ development:
   encoding: unicode
   database: dinr_development
   pool: 5
-  username: macadocious
   password:
 
 # test: &TEST
