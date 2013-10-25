@@ -2,13 +2,18 @@ body{
   background:url(http://www.unsigneddesign.com/Seamless_background_textures/1200px/seamlesstexture1_1200.jpg);
   font-family: 'Domine', serif;
   letter-spacing: 0px;
+  width:100%;
+  height:100%;
 }
 .container{
+  margin:0 auto;
   }
 div.banner{
   background:url();
   height:100px;
   width:960px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 .logo{
   color:black;
@@ -26,18 +31,36 @@ div.banner{
   text-decoration: none;
 }
 .links:hover{
-  font-size: 25px;
+  font-size: 22px;
+  color:rgb(233,0,0);
 }
 .links:visited{
-  color:rgb(52,52,52);
+  color: rgb(52,52,52);
   text-decoration: none;
+}
+.links.index{
+  color:rgba(233, 0, 0, 1);
+}
+div.title{
+  border: groove 5px rgba(55,55,55,.4);
+  padding-top: 15px;
+  background-color: rgba(55,55,55,.7);
+  font-size: 50px;
+  color: white;
+  width: 260px;
+  height: 60px;
+
+  margin-bottom: 20px;
+  text-align: center;
+  margin: 10px auto;
+  font-weight: 700;
 }
 h3.restaurant{
   text-align: center;
   line-height: 20px;
 }
 .rest_list{
-  border: white solid 4px;
+  border: groove 5px rgba(55,55,55,.6);
   border-radius: 5px; 
   width: 290px; 
   height:800px; 
@@ -45,7 +68,7 @@ h3.restaurant{
   overflow: scroll; 
   margin-left: 15px; 
   margin-top:20px;
-  margin-bottom: 10px;
+  margin-bottom:20px;
 }
 .good{
   background-color: rgba(146,243,125,.3);
@@ -58,12 +81,21 @@ h3.restaurant{
 .ugly{
   background-color: rgba(233,0,0,.4);
 }
+div.grub_list{
+  margin: 40px 0px 10px 20px;
+}
+.links_user{
+  font-size: 15px;
+  line-height: 30px;
+color: rgb(52,52,52);
+text-decoration: none;
+}
 div.map{
   width: 650px;
   height: 650px;
   margin: 0 auto;
   border-radius: 5px;
-  border:white 2px solid;
+  border: groove 5px rgba(55,55,55,.4);
 }
 div.static_map{
   border-radius: 5px;
@@ -71,7 +103,7 @@ div.static_map{
   width:400px;
   height:400px;
   margin-left: 20px;
-  margin-top: 5px;
+  margin-top: 15px;
   float:left;
 }
 div.rest_info{
@@ -84,29 +116,34 @@ div.rest_info{
   height:400px; 
   float: right; 
   margin-right:20px;
-  margin-top:5px;
+  margin-top:15px;
   text-align: center;
 }
 .rest{
-
+  font-family: 'Arvo', serif;
+  margin-top: 10px;
 }
 h1.rest{
-
-}
-h2.rest{
-
+  font-size: 30px;
 }
 h4.rest{
-
+  font-size: 16px;
 }
 .user_info{
-
+margin-left: 20px;
+margin-bottom: 10px;
 }
 h4.user_info{
 
 }
 h3.user_info{
-
+  font-size:30px;
+  color: black;
+  font-weight: 700;
+}
+h3.favorite{
+  color: rgba(234,123,143,1);
+  font-size: 17px;
 }
 div.restaurant{
   border-radius: 5px;
@@ -114,4 +151,18 @@ div.restaurant{
   width:960px;
   height:560px;
 }
+.label{
+  margin:20px 500px 5px 30px;
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  display:inline-block;
+}
+.field{
+  font-family: 'Arvo', serif;
+  display:inline-block;
+  margin-right: 50px;
+  font-size: 40px;
+  width:40%;
+}
+
 

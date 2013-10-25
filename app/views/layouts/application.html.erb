@@ -14,13 +14,14 @@
     <div class = "banner">
       <%= link_to "din.r", root_path , class: "logo"%>
       <% unless logged_in? %>
-      <%= link_to 'Sign Up', new_user_path, class: "links" %>
-      <%= link_to 'Sign In', new_session_path,class: "links" %>
+      <%= link_to 'Sign Up', new_user_path, class: "links index" %>
+      <%= link_to 'Sign In', new_session_path,class: "links index" %>
       <%end%>
-      <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
-      <%= link_to 'The Land of Grub', restaurants_path, class: "links" %>
+      
+      <%= link_to 'The Land of Grub', restaurants_path, class: "links index" %>
 
       <%if logged_in? %>
+      <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
         <%= link_to 'Logout', session_path, :method => :delete, class: "links" %>
       <%end%>
     </div>
