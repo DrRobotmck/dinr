@@ -87,8 +87,8 @@ div.grub_list{
 .links_user{
   font-size: 15px;
   line-height: 30px;
-color: rgb(52,52,52);
-text-decoration: none;
+  color: rgb(52,52,52);
+  text-decoration: none;
 }
 div.map{
   width: 650px;
@@ -130,8 +130,8 @@ h4.rest{
   font-size: 16px;
 }
 .user_info{
-margin-left: 20px;
-margin-bottom: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 h4.user_info{
 
@@ -164,5 +164,4 @@ div.restaurant{
   font-size: 40px;
   width:40%;
 }
-
-
+  
