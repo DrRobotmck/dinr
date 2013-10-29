@@ -42,15 +42,16 @@ div.banner{
   color:rgba(233, 0, 0, 1);
 }
 div.title{
-  border: groove 5px rgba(55,55,55,.4);
+  /*/border: groove 5px rgba(55,55,55,.4);*/
   padding-top: 15px;
   background-color: rgba(55,55,55,.7);
   font-size: 50px;
   color: white;
-  width: 260px;
+  width: 290px;
   height: 60px;
-
-  margin-bottom: 20px;
+  position:absolute;
+  
+  
   text-align: center;
   margin: 10px auto;
   font-weight: 700;
@@ -69,6 +70,9 @@ h3.restaurant{
   margin-left: 15px; 
   margin-top:20px;
   margin-bottom:20px;
+}
+.test{
+  margin-top:100px; 
 }
 .good{
   background-color: rgba(146,243,125,.3);
