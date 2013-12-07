@@ -2,7 +2,7 @@ body{
   background:url(http://www.unsigneddesign.com/Seamless_background_textures/1200px/seamlesstexture1_1200.jpg);
   font-family: 'Domine', serif;
   letter-spacing: 0px;
-  width:100%;
+  max-width:960px;
   height:100%;
 }
 .container{
@@ -62,11 +62,11 @@ h3.restaurant{
 .rest_list{
   border: groove 5px rgba(55,55,55,.6);
   border-radius: 5px; 
-  width: 290px; 
+  width: 30%; 
   height:800px; 
   float:left;
   overflow: scroll; 
-  margin-left: 15px; 
+  margin-left: 2%; 
   margin-top:20px;
   margin-bottom:20px;
 }
@@ -91,9 +91,8 @@ div.grub_list{
   text-decoration: none;
 }
 div.map{
-  width: 650px;
-  height: 650px;
-  margin: 0 auto;
+  width: 67.7%;
+  margin: 0 16.5%;
   border-radius: 5px;
   border: groove 5px rgba(55,55,55,.4);
 }
