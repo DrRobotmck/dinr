@@ -1,89 +1,59 @@
 body{
-  background:url(http://www.unsigneddesign.com/Seamless_background_textures/1200px/seamlesstexture1_1200.jpg);
+  background:url(http://farm4.staticflickr.com/3320/3196435369_120a563ca8_o.jpg);
   font-family: 'Domine', serif;
-  letter-spacing: 0px;
-  max-width:960px;
-  height:100%;
+  background-size: cover;
 }
-.container{
-  margin:0 auto;
-  }
-div.banner{
-  background:url();
+div.header{
+  background:rgba(34,31,31,.4);
   height:100px;
-  width:960px;
-  margin-left: 20px;
-  margin-top: 20px;
+  border-bottom: 1px solid whitesmoke;
 }
-.logo{
-  color:black;
-  font-size: 80px;
+.logo, .logo:hover{
+  color:whitesmoke;
+  font-size: 90px;
   text-decoration: none;
   font-family: 'Domine', serif;
   font-weight: bold;
 }
 .links{
+  font-family: Helvetica, serif;
   line-height: 30px;
-  font-size: 20px;
-  padding-left: 3px;
-  color: rgb(52,52,52);
+  font-size: 1.25em;
+  color: whitesmoke;
   margin: 5px auto;
   text-decoration: none;
 }
 .links:hover{
-  font-size: 22px;
-  color:rgb(233,0,0);
-}
-.links:visited{
-  color: rgb(52,52,52);
-  text-decoration: none;
-}
-.links.index{
-  color:rgba(233, 0, 0, 1);
+  font-size: 1.25em;
+  color:white;
 }
 div.title{
-  /*/border: groove 5px rgba(55,55,55,.4);*/
   padding-top: 15px;
   background-color: rgba(55,55,55,.7);
-  font-size: 50px;
+  font-size: 30px;
   color: white;
-  width: 290px;
   height: 60px;
   position:absolute;
-  
-  
   text-align: center;
-  margin: 10px auto;
   font-weight: 700;
 }
 h3.restaurant{
   text-align: center;
   line-height: 20px;
 }
-.rest_list{
-  border: groove 5px rgba(55,55,55,.6);
-  border-radius: 5px; 
-  width: 30%; 
-  height:800px; 
-  float:left;
-  overflow: scroll; 
-  margin-left: 2%; 
-  margin-top:20px;
-  margin-bottom:20px;
+.good, .good:focus, .good:hover{
+  background: rgba(146,243,125,.7);
 }
-.test{
-  margin-top:100px; 
-}
-.good{
-  background-color: rgba(146,243,125,.3);
+.bad, .bad:focus, .bad:hover{
+  background: rgba(255,245,1,.7);
   
 }
-.bad{
-  background-color: rgba(255,245,1,.3);
-  
+.ugly, .ugly:focus, .ugly:hover{
+  background: rgba(233,0,0,.6);
 }
-.ugly{
-  background-color: rgba(233,0,0,.4);
+.restaurant-list{
+  text-align: center;
+  line-height: 1.3em;
 }
 div.grub_list{
   margin: 40px 0px 10px 20px;
@@ -95,32 +65,19 @@ div.grub_list{
   text-decoration: none;
 }
 div.map{
-  width: 67.7%;
-  margin: 0 16.5%;
   border-radius: 5px;
-  border: groove 5px rgba(55,55,55,.4);
+  height: 650px;
+  background: rgba(34,31,31,.3);
 }
 div.static_map{
   border-radius: 5px;
-  border:5px white dotted;
-  width:400px;
-  height:400px;
-  margin-left: 20px;
-  margin-top: 15px;
-  float:left;
 }
 div.rest_info{
-  border-radius: 5px;
-  background-color: rgba(255,255,255,.2);
-  border:5px dotted white;
-  margin: 0 auto; 
-  display: inline; 
-  width: 400px; 
-  height:400px; 
-  float: right; 
-  margin-right:20px;
-  margin-top:15px;
+  height:650px;
   text-align: center;
+}
+.rest_info h5, .rest_info h2, .rest_info h4{
+  color:whitesmoke;
 }
 .rest{
   font-family: 'Arvo', serif;
@@ -150,9 +107,8 @@ h3.favorite{
 }
 div.restaurant{
   border-radius: 5px;
-  border:white solid 2px;
-  width:960px;
-  height:560px;
+  height:600px;
+  background: rgba(34,31,31,.3);
 }
 .label{
   margin:20px 500px 5px 30px;
@@ -167,4 +123,22 @@ div.restaurant{
   font-size: 40px;
   width:40%;
 }
-  
+div.restaurants{
+  height: 600px;
+  overflow: scroll;
+  border-radius: 5px;
+  background: rgba(34,31,31,.3);
+  }
+.choices{
+  position: fixed;
+  height: 51px;
+  margin: 0 auto;
+  text-align: center;
+}
+.forms{
+  margin: 8.5em auto;
+}
+.each-one .links:hover{
+  color: slategrey;
+}
+

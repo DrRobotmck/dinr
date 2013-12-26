@@ -1,35 +1,18 @@
-<%if @rest.points.to_i <= 16%>
-    <%uri = "http://farm4.staticflickr.com/3817/10463809513_ebb4dd6cac_o.jpg"%>
-    <% colour= "green" %>
-    <%elsif (@rest.points.to_i > 16 && @rest.points.to_i <= 27)%>
-    <%uri = "http://farm8.staticflickr.com/7432/10463972066_e0d62fac8f_o.jpg"%>
-    <% colour = "yellow" %>
-    <%else%>
-    <%uri = "http://farm3.staticflickr.com/2844/10463809563_ed404c63ee_o.jpg"%>
-    <% colour = "red" %>
-    <%end%>
+<div class="restaurant row">
 
-<div class="restaurant"style="opacity: .9;background:url(<%= uri %>);">
-
-
-<div class= "static_map">
-<!-- static map -->
-  <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @rest.long %>,<%= @rest.lat %>&zoom=15&size=400x400&maptype=roadmap
-&markers=color:<%=colour%>%7Clabel:S%7C<%= @rest.long %>,<%= @rest.lat %>&sensor=false">
+<div class= "static_map small-6 large-6 columns">
+<div id="map-canvas"></div>
 </div>
 
-<div class="rest_info">
+<div class="rest_info small-6 large-6 columns">
 
-  <h1 class="rest" style=><%= @rest.camis %></h1>
-  <h1 class="rest" style=><%= @rest.grade %></h1>
-  <h1 class="rest" style=><%= @rest.points %></h1>
-  <h4 class="rest" style=>Add: <%= @rest.address %></h4>
-  <h4 class="rest" style=>Ph: <%= @rest.phone %></h4>
-  <h4 class="rest"style=>Inspected: <%= @rest.date %></h4>
+  <h5>Name:</h5><h2 class="name" style=><%= @rest.camis %></h2>
+  <h5>Grade</h5><h2 class="grade" style=><%= @rest.grade %></h2>
+  <h5>Points:</h5><h2 class="points" style=><%= @rest.points %></h2>
+  <h5>Inspected:</h5><h4 class="rest"style=><%= @rest.date %></h4>
+  <h5>Address: </h5><h4 class="address" style=><%= @rest.address %></h4>
+  <h5>Phone:</h5><h4 class="phone" style=>Ph: <%= @rest.phone %></h4>
 
-  
-  
-  
   <%= link_to "View All", restaurants_path, class: "links" %> 
 
 <% if logged_in? %>
@@ -39,3 +22,8 @@
 
 </div>
 </div>
+
+<script type="text/javascript">
+  $.getJSON("/restaurants/"+<%=@rest.id%>, getMap)
+</script>
+<%= render "singlemap"%>

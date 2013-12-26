@@ -1,8 +1,8 @@
 Dinr::Application.routes.draw do
-  root 'static#index'
+  root 'restaurants#index'
   resources :users, except: [:index]
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:create, :destroy]
   
   resources :restaurants, only: [:show, :index] do
     member do
