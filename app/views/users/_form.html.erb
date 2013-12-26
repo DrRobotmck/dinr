@@ -3,13 +3,13 @@
 <%end%>
 
 <%= form_for @user do |f| %>
-<%= f.label :name, class: "label" %>
+<%= f.label :name %>
 <%= f.text_field :name, class: "field" %>
-<%= f.label :email, class: "label" %>
+<%= f.label :email %>
 <%= f.email_field :email, class: "field" %>
-<%= f.label :password, class: "label" %>
+<%= f.label :password %>
 <%= f.password_field :password, class: "field" %>
-<%= f.label :password_confirmation, class: "label" %>
+<%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation, class: "field" %>
 <%= f.submit%>
 <%end%>

@@ -47,14 +47,14 @@ private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-  # def logged_in?
-  #   session[:user_id].present?
-  # end
-  # def authenticated!
-  #   unless logged_in?
-  #     redirect_to new_session_path
-  #   end
-  # end
+  def logged_in?
+    session[:user_id].present?
+  end
+  def authenticated!
+    unless logged_in?
+      redirect_to new_session_path
+    end
+  end
 
   def set_user
     @user = User.find(params[:id])

@@ -2,24 +2,25 @@
 <html>
 <head>
   <title>Din.r</title>
+  <style>
+    .layer-wizard-search-label { font-family: sans-serif };
+  </style>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Domine:400,700|Arvo:400,700,400italic,700italic|Smokum|Slackey|Carter+One|Montserrat+Subrayada' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container" style="width:960px;">
-    <div class = "banner">
+<div class="back"></div>
+    <div class = "header">
       <%= link_to "din.r", root_path , class: "logo"%>
       <% unless logged_in? %>
-      <%= link_to 'Sign Up', new_user_path, class: "links index" %>
-      <%= link_to 'Sign In', new_session_path,class: "links index" %>
+      <%= link_to 'Sign Up or Sign Up', new_user_path, class: "links" %>
       <%end%>
-      
-      <%= link_to 'The Land of Grub', restaurants_path, class: "links index" %>
-
       <%if logged_in? %>
       <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>
         <%= link_to 'Logout', session_path, :method => :delete, class: "links" %>
@@ -28,6 +29,5 @@
 
   
 <%= yield %>
-  </div>
 </body>
 </html>

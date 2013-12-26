@@ -1,0 +1,33 @@
+
+  <script type="text/javascript">
+    var map;
+    var layer;
+    function initialize() {
+      google.maps.visualRefresh = true;
+      var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+      (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+      if (isMobile) {
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+      }
+      var mapDiv = document.getElementById('map-canvas');
+      mapDiv.style.width = isMobile ? '100%' : '100%';
+      mapDiv.style.height = isMobile ? '580px' : '580px';
+      map = new google.maps.Map(mapDiv, {
+        center: new google.maps.LatLng(<%=@rest.long%>, <%= @rest.lat%>),
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      layer = new google.maps.FusionTablesLayer({
+        query: {
+          select: "col8",
+          from: "1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0",
+          where: "'Name' CONTAINS IGNORING CASE '<%=@rest.camis%>'"
+        },
+        map: map,
+        styleId: 2,
+        templateId: 2
+      });
+    } 
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>

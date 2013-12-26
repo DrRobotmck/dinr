@@ -1,42 +1,28 @@
 
-<div class="map">
-<iframe width="650" height="650" scrolling="yes" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col8+from+1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0&amp;viz=MAP&amp;h=false&amp;lat=40.7396917&amp;lng=-73.9889609&amp;t=1&amp;z=14&amp;l=col8&amp;y=2&amp;tmplt=2&amp;hml=ONE_COL_LAT_LNG&amp;"></iframe>
+<div class="row">
+<div class="map small-7 large-7 columns">
+<div id="map-canvas"></div>
+    <div style="margin-top: 10px;">
+      <label class="layer-wizard-search-label">
+        Search by Name
+        <input type="text" id="search-string_1" onkeyup="changeMap_1()" placeholder="Search by Name">
+      </label> 
+    </div>
+</div>
+<div class="choices small-5 large-5 columns">
+  <button class="good">Good</button>
+  <button class="bad">Bad</button>
+  <button class="ugly">Ugly</button>
+</div>
+<div class="restaurants small-5 large-5 columns">
+
+  <ul class="restaurant-list">
+  </ul>
 </div>
 
-<div class= "good rest_list">
-    <div class="title"><h1>The Good</h1></div>
-    <div class = "test">
-    <% for resto in @rest do %>
-    <%if resto.points.to_i <= 16 %>
-      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
-    <%end%>
-  
-  <%end%> </div> 
 </div>
-
-
-<div class = "bad rest_list">
-  <div class="title"><h1>The Bad</h1></div>
-  <div class = "test">
-  <% for resto in @rest do %>
-  
-    <%if (resto.points.to_i > 16 && resto.points.to_i <=27) %>
-      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
-    <%end%>
-  
-  <%end%></div>
-</div>
-
-
-<div class = "ugly rest_list">
-  <div class="title"><h1>The Ugly</h1></div>
- <div class = "test">
- <% for resto in @rest do %> 
-    <%if resto.points.to_i > 27%>
-      <h3 class="restaurant"><%= link_to resto.camis, restaurant_path(resto), class: "links"%></h3>
-    <%end%>
-  <%end%></div>
-</div>
+<!-- Map -->
+<%= render "mainmap"%>
   
 
 

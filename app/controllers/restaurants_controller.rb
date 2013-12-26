@@ -1,15 +1,20 @@
 class RestaurantsController < ApplicationController
   
-  def show
-    @rest = Restaurant.find(params[:id])
-    render :show
-  end
-
   def index
     @rest = Restaurant.all
-    render :index
+    respond_to do |format|
+      format.html
+      format.json{render json: @rest}
+    end
   end
-
+   def show
+      @rest = Restaurant.find(params[:id])
+      lat_long = [@rest.long,@rest.lat]
+      respond_to do |format|
+        format.html
+        format.json{render json: lat_long}
+      end
+    end
   def favorite
     @rest = Restaurant.find(params[:id])
     if current_user.favorite(@rest)
