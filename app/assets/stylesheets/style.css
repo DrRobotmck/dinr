@@ -55,14 +55,14 @@ h3.restaurant{
   text-align: center;
   line-height: 1.3em;
 }
-div.grub_list{
-  margin: 40px 0px 10px 20px;
-}
 .links_user{
-  font-size: 15px;
+  font-size: 20px;
   line-height: 30px;
-  color: rgb(52,52,52);
+  color: goldenrod;
   text-decoration: none;
+}
+.links_user:hover{
+  color: slategrey
 }
 div.map{
   border-radius: 5px;
@@ -89,21 +89,31 @@ h1.rest{
 h4.rest{
   font-size: 16px;
 }
-.user_info{
-  margin-left: 20px;
-  margin-bottom: 10px;
+div.user_info, div.grub_list{
+  margin-top: 1em;
+  background: rgba(34,31,31,.3);
+  height: 650px;
+  overflow: scroll;
 }
-h4.user_info{
-
+.user_info, .grub_list{
+  color:whitesmoke;
+  text-align: center;
 }
-h3.user_info{
-  font-size:30px;
-  color: black;
-  font-weight: 700;
+div.user_info{
+  padding-top: 1em;
+}
+h5.user_info{
+  color:goldenrod;
+}
+a.user_info{
+  color: goldenrod;
+}
+a.user_info:hover{
+  color: slategrey;
 }
 h3.favorite{
-  color: rgba(234,123,143,1);
-  font-size: 17px;
+  color: whitesmoke;
+  font-size: 22px;
 }
 div.restaurant{
   border-radius: 5px;
@@ -115,13 +125,6 @@ div.restaurant{
   font-family: 'Arvo', serif;
   font-size: 20px;
   display:inline-block;
-}
-.field{
-  font-family: 'Arvo', serif;
-  display:inline-block;
-  margin-right: 50px;
-  font-size: 40px;
-  width:40%;
 }
 div.restaurants{
   height: 600px;
@@ -137,8 +140,19 @@ div.restaurants{
 }
 .forms{
   margin: 8.5em auto;
+  background: rgba(34,31,31,.5)
+}
+.forms h2, .forms label{
+  color: whitesmoke;
+  text-align: center;
 }
 .each-one .links:hover{
   color: slategrey;
+}
+#user_name, #user_email, #user_password, #user_password_confirmation, #email, #password{
+background: rgba(34,31,31,.4);
+color: whitesmoke;
+text-align: center;
+font-size: 1.25em;
 }
 
