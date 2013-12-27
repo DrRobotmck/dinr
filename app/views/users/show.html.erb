@@ -1,11 +1,14 @@
-<div class= "info">
-<h3 class="user_info"><%= @user.name %></h3>
-<h5 class="user_info"><%= @user.email%></h5>
+
+<div class= "row">
+<div class = "user_info small-6 large-6 columns">
+<h3 class="user_info">Account Information</h3>
+<h5 class="user_info">Name:</h5><h3 class="favorite"><%= @user.name %></h3>
+<h5 class="user_info">Email:</h5><h3 class="favorite"><%= @user.email%></h3>
+
+
+<%= link_to("Edit your account", edit_user_path, class: "user_info")%>
 </div>
-
-<%= link_to("edit", edit_user_path, class: "user_info")%>
-
-<div class="grub_list">
+<div class="grub_list small-6 large-6 columns">
  <h3 class="user_info">Grub List</h3> 
 
     <% for faves in @user.restaurants do %>
@@ -18,4 +21,5 @@
       </p>  
     
   <%end%>
+</div>
 </div>

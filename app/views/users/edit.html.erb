@@ -1,4 +1,5 @@
-<div class="info">
+<div class="forms row">
+<div class="small-6 large-6 small-offset-3 large-offset-3 columns">
 <h4 class="user_info">Edit your information</h4>
 <h3 class="user_info"><%= @user.name%></h3>
 <h3 class="user_info"><%= @user.email%></h3>
@@ -6,5 +7,5 @@
 
 <%= link_to 'Back', user_path(@user), class: "links"%> |
 <%= link_to("Delete Account", user_path(@user), :method => :delete, class: "links")%>
-
+</div>
 </div>
