@@ -19,7 +19,7 @@
     <div class = "header">
       <%= link_to "din.r", root_path , class: "logo"%>
       <% unless logged_in? %>
-      <%= link_to 'Sign Up or Sign Up', new_user_path, class: "links" %>
+      <%= link_to 'Sign Up or Sign In', new_user_path, class: "links" %>
       <%end%>
       <%if logged_in? %>
       <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>

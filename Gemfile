@@ -53,4 +53,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'meta_request'
+end
 ruby "2.0.0"
