@@ -9,9 +9,9 @@ function placeRestaurants(list){
 	 var theUgly = [];
 
 	 _.each(allRestos, function(resto){
-	 		if(resto.points <= 16){
+	 		if(resto.score <= 16){
 	 			theGood.push(resto)
-	 		}else if(resto.points > 16 && resto.points <=28){
+	 		}else if(resto.score > 16 && resto.score <=28){
 	 			theBad.push(resto)
 	 		}else{
 	 			theUgly.push(resto)
@@ -29,11 +29,12 @@ function placeRestaurants(list){
 	 	// resto.removeClass("bad").removeClass("ugly").addClass("good");
 	 	// buttons.removeClass("bad").removeClass("ugly").addClass("good");
 	 	list.empty();
+	 	console.log(_.uniq(theGood));
 	 	_.each(theGood, function(item){
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
 	 		linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.camis);
+	 		linker.text(item.name+" - "+ item.building + " " + item.street);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })
@@ -46,7 +47,7 @@ function placeRestaurants(list){
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
 	 		linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.camis);
+	 		linker.text(item.name);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })
@@ -56,15 +57,13 @@ function placeRestaurants(list){
 	 	// buttons.removeClass("good").removeClass("bad").addClass("ugly");
 	 	list.empty();
 	 	_.each(theUgly, function(item){
+	 		console.log(item, item.name)
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
-	 		linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.camis);
+	 		// linker.attr("href","/restaurants/"+item.id);
+	 		linker.text(item.name);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })
 	 pushGood.click();
 }
-$(function(){
-	getRestaurants(placeRestaurants);
-})

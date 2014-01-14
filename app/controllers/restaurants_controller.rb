@@ -1,7 +1,8 @@
 class RestaurantsController < ApplicationController
   
   def index
-    @rest = Restaurant.all
+    @rest = Restaurant.unique
+    # binding.pry
     respond_to do |format|
       format.html
       format.json{render json: @rest}
@@ -9,7 +10,9 @@ class RestaurantsController < ApplicationController
   end
    def show
       @rest = Restaurant.find(params[:id])
-      lat_long = [@rest.long,@rest.lat]
+      i = Inspection.new
+      @violations = i.get_result(@rest.camis)
+      # lat_long = [@rest.long,@rest.lat]
       respond_to do |format|
         format.html
         format.json{render json: lat_long}

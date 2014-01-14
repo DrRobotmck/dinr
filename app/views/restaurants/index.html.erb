@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="restaurants small-4 large-5 columns">
+<div class="restaurants small-10 large-10 columns">
 
   <ul class="restaurant-list">
   </ul>
@@ -21,6 +21,12 @@
 </div>
 <!-- Map -->
 <%= render "mainmap"%>
+
+<script type="text/javascript">
+  $(function(){
+  getRestaurants(placeRestaurants);
+})
+</script>
 
 
 

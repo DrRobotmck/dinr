@@ -1,16 +1,15 @@
 <div class="restaurant row">
 
 <div class= "static_map small-6 large-6 columns">
-<div id="map-canvas"></div>
+<!-- <div id="map-canvas"></div> -->
 </div>
 
 <div class="rest_info small-6 large-6 columns">
 
-  <h5>Name:</h5><h2 class="name" style=><%= @rest.camis %></h2>
+  <h5>Name:</h5><h2 class="name" style=><%= @rest.name %></h2>
   <h5>Grade</h5><h2 class="grade" style=><%= @rest.grade %></h2>
-  <h5>Points:</h5><h2 class="points" style=><%= @rest.points %></h2>
-  <h5>Inspected:</h5><h4 class="rest"style=><%= @rest.date %></h4>
-  <h5>Address: </h5><h4 class="address" style=><%= @rest.address %></h4>
+  <h5>Points:</h5><h2 class="points" style=><%= @rest.score %></h2>
+  <h5>Address: </h5><h4 class="address" style=><%= @rest.grade %></h4>
   <h5>Phone:</h5><h4 class="phone" style=>Ph: <%= @rest.phone %></h4>
 
   <%= link_to "View All", restaurants_path, class: "links" %> 
@@ -21,9 +20,14 @@
  <%end%>
 
 </div>
-</div>
 
-<script type="text/javascript">
-  $.getJSON("/restaurants/"+<%=@rest.id%>, getMap)
-</script>
-<%= render "singlemap"%>
+<div class="small-6 large-6 columns">
+  
+<% @violations.each do |key, value| %>
+
+<h1 class="name"><%=key%></h1><h4 class="name "><%=value.join("|")%></h4>
+
+<%end%>
+
+</div>
+</div>

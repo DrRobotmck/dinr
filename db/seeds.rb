@@ -8,13 +8,99 @@
 User.destroy_all
 Restaurant.destroy_all
 
-file = File.new("/Users/macadocious/Desktop/sorted/poochies.txt", "r")
-
-for restaurant in file do
-  resto = restaurant.split(",")  
-  seed_rest = Restaurant.create(camis: resto[1], address: resto[2], phone: resto[3], date: resto[4], points: resto[5].to_i, grade: resto[6], long: resto[7], lat: resto[8])
+def uniq_camis(boro)
+	camis = []
+	boro.each do |number|
+		camis.push(number[0])
+	end
+	camis.uniq 
 end
-# Restaurant.create(camis: "ASS", address: "NILBOG LANE",phone: "23423423", date: "2013-09-08", points: 9001, grade: "A", longlat: "longitudinally latituding")
+
+def add_to_rest_hash(hash,boro,keys)
+	keys.each do |key|
+		hash[boro][key.to_sym] = []
+	end
+end
+def add_by_camis(hash,boro,restaurants)
+	restaurants.each do |one_resto|
+		hash[boro][one_resto[0].to_sym].push(one_resto)
+	end
+end
+def seed_me(hash, boro)
+	hash[boro].each do |camis,inspections|
+		inspections.each do |inspection|
+			Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[13], boro: inspection[2])
+		end
+	end
+end
+
+manhattan = []
+brooklyn = []
+queens = []
+bronx = []
+staten = []
+read_in = File.new("/Users/macadocious/Downloads/dohmh_restaurant-inspections_002/WebExtract.txt", "r")
+read_in.each do |line|
+
+	b = line.split("\",\"")
+	b[0] = b[0][1..8]
+	if b[8][0..3] == "2013"
+		boro = b[2]
+		case boro
+		when "1"
+			manhattan << b[0..13]
+		when "2"
+			bronx << b[0..13]
+		when "3"
+			brooklyn << b[0..13]
+		when "4"
+			queens << b[0..13]
+		when "5"
+			staten << b[0..13]
+		end
+	end
+end
+read_in.close
+man_camis = uniq_camis(manhattan)
+bk_camis = uniq_camis(brooklyn)
+bx_camis = uniq_camis(bronx)
+q_camis = uniq_camis(queens)
+s_camis = uniq_camis(staten)
+
+rest_hash = {manhattan: {}, brooklyn: {}, queens: {}, bronx: {}, staten: {}}
+
+add_to_rest_hash(rest_hash,:manhattan,man_camis)
+add_to_rest_hash(rest_hash, :brooklyn, bk_camis)
+add_to_rest_hash(rest_hash, :bronx, bx_camis)
+add_to_rest_hash(rest_hash, :queens, q_camis)
+add_to_rest_hash(rest_hash, :staten, s_camis)
+
+add_by_camis(rest_hash,:manhattan,manhattan)
+add_by_camis(rest_hash,:brooklyn,brooklyn)
+add_by_camis(rest_hash,:bronx,bronx)
+add_by_camis(rest_hash,:queens,queens)
+add_by_camis(rest_hash,:staten,staten)
+
+# rest_hash[:manhattan].each do |camis,inspection|
+# 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
+# end
+# rest_hash[:brooklyn].each do |camis,inspection|
+# 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
+# end
+# rest_hash[:bronx].each do |camis,inspection|
+# 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
+# end
+# rest_hash[:queens].each do |camis,inspection|
+# 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
+# end
+# rest_hash[:staten].each do |camis,inspection|
+# 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
+# end
+seed_me(rest_hash,:manhattan)
+seed_me(rest_hash,:brooklyn)
+seed_me(rest_hash,:bronx)
+seed_me(rest_hash,:queens)
+seed_me(rest_hash,:staten)
+
 user = User.create(name: "A", email: "a@b.c", password: "a", password_confirmation: "a")
 
-file.close
