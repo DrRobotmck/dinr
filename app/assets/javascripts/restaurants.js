@@ -1,5 +1,5 @@
-function getRestaurants(callback){
-	 $.getJSON("/restaurants", callback);
+function getRestaurants(params,callback){
+	 $.getJSON("/restaurants?search="+params, callback);
 }
 
 function placeRestaurants(list){

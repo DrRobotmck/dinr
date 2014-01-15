@@ -1,18 +1,20 @@
 
 <div class="row">
-  <div class="map small-8 large-7 columns">
+  <div class="small-6 small-offset-3 large-6 columns">
+    <form id="search">
+      <input name="search" type="search" placeholder="enter zip" id="search-string_1" onkeyup="changeMap_1()"> 
+    </form>
+  </div>
+  <div class="map small-12 large-12 columns">
    <div class="choices">
     <button class="small good">Good</button>
     <button class="small bad">Bad</button>
     <button class="small ugly">Ugly</button>
   </div>
   <div id="map-canvas"></div>
-  <div style="margin-top: 10px;">
-    <input type="text" id="search-string_1" onkeyup="changeMap_1()" placeholder="Search by Name"> 
-  </div>
 </div>
 
-<div class="restaurants small-10 large-10 columns">
+<div class="restaurants small-12 large-12 columns">
 
   <ul class="restaurant-list">
   </ul>
@@ -24,8 +26,16 @@
 
 <script type="text/javascript">
   $(function(){
-  getRestaurants(placeRestaurants);
-})
+    if(window.location.search.length == 0){
+    getRestaurants(<%= "10011" %>, placeRestaurants)
+    }else if(window.location.search.length > 0){
+      getRestaurants(window.location.search.slice(-5), placeRestaurants)
+    }
+    $("#search").submit(function(e){
+      e.preventDefault();
+      getRestaurants($(this).find('input[name="search"]').val(), placeRestaurants);
+    })
+  })
 </script>
 
 

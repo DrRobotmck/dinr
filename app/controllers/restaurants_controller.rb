@@ -1,8 +1,13 @@
 class RestaurantsController < ApplicationController
   
   def index
-    @rest = Restaurant.unique
+    # zip = request.location.postal_code
+    zip = params[:search]
+    if zip == nil 
+      zip = "10011"
+    end
     # binding.pry
+    @rest = Restaurant.unique(zip)
     respond_to do |format|
       format.html
       format.json{render json: @rest}

@@ -1,5 +1,11 @@
 <div class="restaurant row">
 
+<div class= "small-6 large-6 columns">
+  <form id="search" acion="<%= restaurants_path%>">
+    <input name="search" type="search" placeholder="enter zip"> 
+  </form>
+</div>
+
 <div class= "static_map small-6 large-6 columns">
 <!-- <div id="map-canvas"></div> -->
 </div>
@@ -31,3 +37,12 @@
 
 </div>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $("#search").submit(function(e){
+      e.preventDefault();
+      window.location = '<%= restaurants_path%>?search='+$(this).find('input[name="search"]').val();
+      // getRestaurants(, placeRestaurants);
+    })
+  })
+</script>
