@@ -16,13 +16,13 @@
       mapDiv.style.height = isMobile ? '300px' : '300px';
       map = new google.maps.Map(mapDiv, {
         center: new google.maps.LatLng(40.7399903, -73.9901026),
-        zoom: 14,
+        zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       layer_1 = new google.maps.FusionTablesLayer({
         query: {
-          select: "col8",
-          from: "1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0"
+          select: "col2",
+          from: "1pBTCJx609JrnrUueff5Guhgp02LkuqcivFY_RcU"
         },
         map: map,
         styleId: 2,
@@ -37,8 +37,8 @@
       }
       layer_1.setOptions({
         query: {
-          select: "col8",
-          from: "1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0",
+          select: "col2",
+          from: "1pBTCJx609JrnrUueff5Guhgp02LkuqcivFY_RcU",
           where: whereClause
         }
       });

@@ -21,13 +21,13 @@ development:
   pool: 5
   password:
 
-# test: &TEST
-#   adapter: postgresql
-#   encoding: utf8
-#   database: project_test
-#   pool: 5
-#   username: 
-#   password:
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: dinr_test
+  pool: 5
+  username: macadocious
+  password:
 
 # production:
 #   adapter: postgresql

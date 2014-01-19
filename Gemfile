@@ -27,7 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'pry-rails'
+
 gem 'geocoder'
 
 # Use postgresql as the database for Active Record
@@ -36,6 +36,24 @@ gem 'pg'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'nyan-cat-formatter'
+  gem "better_errors"
+end
+# capybara
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'launchy'
+end
+group :test do
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 # Use ActiveModel has_secure_password

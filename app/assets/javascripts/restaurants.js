@@ -33,8 +33,10 @@ function placeRestaurants(list){
 	 	_.each(theGood, function(item){
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
+	 		var named = $("<p>").text(item.name.toLowerCase());
+	 		var	addy = $("<h4 class='rest'>").text(item.building + " " + item.street.toLowerCase());
 	 		linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.name+" - "+ item.building + " " + item.street);
+	 		linker.append(named).append(addy);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })
@@ -46,8 +48,10 @@ function placeRestaurants(list){
 	 	_.each(theBad, function(item){
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
+	 		var named = $("<p>").text(item.name.toLowerCase());
+	 		var	addy = $("<h4 class='rest'>").text(item.building + " " + item.street.toLowerCase());
 	 		linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.name);
+	 		linker.append(named).append(addy);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })
@@ -60,8 +64,10 @@ function placeRestaurants(list){
 	 		console.log(item, item.name)
 	 		var listItem = $("<li class='each-one'>");
 	 		var linker = $("<a class='links'>");
-	 		// linker.attr("href","/restaurants/"+item.id);
-	 		linker.text(item.name);
+	 		var named = $("<p>").text(item.name.toLowerCase());
+	 		var	addy = $("<h4 class='rest'>").text(item.building + " " + item.street.toLowerCase());
+	 		linker.attr("href","/restaurants/"+item.id);
+	 		linker.append(named).append(addy);
 	 		listItem.append(linker).appendTo(list);
 	 	})
 	 })

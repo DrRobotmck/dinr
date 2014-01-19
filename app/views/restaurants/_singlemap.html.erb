@@ -1,8 +1,17 @@
 
   <script type="text/javascript">
+  function mapSingle(address){
     var map;
     var layer;
     function initialize() {
+      function singleGeocode(addressed) {
+      // var geocoder = new google.maps.Geocoder;  
+      console.log(addressed)
+      geocoder.geocode({'address': addressed},function(response){
+        map.setCenter(new google.maps.LatLng(response[0].geometry.location.b,response[0].geometry.location.d));
+      })
+    };
+    var geocoder = new google.maps.Geocoder;
       google.maps.visualRefresh = true;
       var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
       (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
@@ -12,22 +21,24 @@
       }
       var mapDiv = document.getElementById('map-canvas');
       mapDiv.style.width = isMobile ? '100%' : '100%';
-      mapDiv.style.height = isMobile ? '580px' : '580px';
+      mapDiv.style.height = isMobile ? '120px' : '120px';
       map = new google.maps.Map(mapDiv, {
-        center: new google.maps.LatLng(<%=@rest.long%>, <%= @rest.lat%>),
+        center: singleGeocode(address),
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       layer = new google.maps.FusionTablesLayer({
         query: {
-          select: "col8",
-          from: "1lhzj737PB2NgR3CU5iC2NyXWHsfcZP7hO8ohNN0",
-          where: "'Name' CONTAINS IGNORING CASE '<%=@rest.camis%>'"
+          select: "col2",
+          from: "1pBTCJx609JrnrUueff5Guhgp02LkuqcivFY_RcU",
+          where: "'Name' CONTAINS IGNORING CASE '<%=@rest.name%>'"
         },
         map: map,
         styleId: 2,
         templateId: 2
       });
-    } 
-    google.maps.event.addDomListener(window, 'load', initialize);
+    }
+  google.maps.event.addDomListener(window, 'load', initialize);
+  initialize();
+  }
   </script>

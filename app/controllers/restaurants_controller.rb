@@ -6,7 +6,6 @@ class RestaurantsController < ApplicationController
     if zip == nil 
       zip = "10011"
     end
-    # binding.pry
     @rest = Restaurant.unique(zip)
     respond_to do |format|
       format.html
@@ -17,7 +16,6 @@ class RestaurantsController < ApplicationController
       @rest = Restaurant.find(params[:id])
       i = Inspection.new
       @violations = i.get_result(@rest.camis)
-      # lat_long = [@rest.long,@rest.lat]
       respond_to do |format|
         format.html
         format.json{render json: lat_long}
