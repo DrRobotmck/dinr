@@ -29,3 +29,54 @@ describe 'unfavorite a restaurant', js:true do
 		expect(john.restaurants.count).to eq(0)
 	end
 end
+describe 'edit an account' do
+	jake = FactoryGirl.create(:user)
+	it "allows a user to edit their account information" do
+		visit new_user_path
+		within '.sign-in' do
+			fill_in 'Email', with: jake.email 
+			fill_in 'Password', with: jake.password
+			click_button 'Login'
+		end
+		current_path.should == user_path(jake.id)
+		page.should have_content 'Account Information'
+		page.should have_content 'Edit your account'
+		click_link 'Edit your account'
+
+		current_path.should == edit_user_path(jake.id)
+		page.should have_content "#{jake.name}"
+		page.should have_content "#{jake.email}"
+		page.assert_selector 'form'
+		page.has_link? 'a.links', text: 'Back'
+		page.has_link? 'a.links', text: 'Delete Account'
+		jake.name = 'Paul'
+		within 'div.forms' do
+			fill_in 'Name', with: jake.name
+			fill_in 'Email', with: jake.email
+			fill_in 'Password', with: 'poot'
+			fill_in 'Password confirmation', with: 'poot'
+			click_button 'Submit'
+		end
+		current_path.should == user_path(jake.id)
+		page.should have_content "#{jake.name}"
+		expect(jake.name).to eq('Paul')
+	end
+end
+
+describe 'a user can delete their account' do
+	josh = FactoryGirl.create(:user)
+	it "goes to the user edit page and can choose to delete their account" do
+		visit new_user_path
+		within '.sign-in' do
+			fill_in 'Email', with: josh.email 
+			fill_in 'Password', with: josh.password
+			click_button 'Login'
+		end
+		click_link 'Edit your account'
+
+		current_path.should == edit_user_path(josh.id)
+		page.should have_content 'Edit your information'
+		click_link 'Delete Account'
+		current_path.should == root_path
+	end
+end
