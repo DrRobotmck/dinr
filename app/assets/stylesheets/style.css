@@ -73,6 +73,10 @@ div.map{
   height: 375px;
   background: rgba(34,31,31,.1);
 }
+#gmap{
+  width: 100%;
+  height: 300px;
+}
 div.static_map{
   border-radius: 5px;
 }

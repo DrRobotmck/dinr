@@ -6,10 +6,10 @@ has_and_belongs_to_many :users
 
 #private
 	def self.search_by_zip(zip_code)
-		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip).distinct.where(zip: zip_code).limit(2000)
+		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip,:lat,:long).distinct.where(zip: zip_code).limit(2000)
 	end
 	def self.search_by_name(name)
-		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip).distinct.where("LOWER(name) SIMILAR TO ?", "%"+name.downcase+"%").limit(2000).order(camis: :asc) 
+		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip,:lat,:long).distinct.where("LOWER(name) SIMILAR TO ?", "%"+name.downcase+"%").limit(2000).order(camis: :asc) 
 		# binding.pry
 	end
 	def self.unique(query_string)

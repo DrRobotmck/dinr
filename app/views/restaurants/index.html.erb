@@ -11,7 +11,7 @@
     <button class="small bad">Bad</button>
     <button class="small ugly">Ugly</button>
   </div>
-  <div id="map-canvas"></div>
+  <div id="gmap"></div>
 </div>
 
 <div class="restaurants small-12 large-12 columns">
@@ -27,7 +27,7 @@
 <script type="text/javascript">
   $(function(){
     if(window.location.search.length == 0){
-    getRestaurants(<%= "10011" %>, placeRestaurants)
+      getRestaurants(<%= "10011" %>, placeRestaurants)
     }else if(window.location.search.length > 0){
       getRestaurants(window.location.search.slice(-5), placeRestaurants)
     }
@@ -36,6 +36,7 @@
       getRestaurants($(this).find('input[name="search"]').val(), placeRestaurants);
     })
   })
+
 </script>
 
 

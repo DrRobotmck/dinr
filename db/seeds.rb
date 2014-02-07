@@ -26,10 +26,15 @@ def add_by_camis(hash,boro,restaurants)
 		hash[boro][one_resto[0].to_sym].push(one_resto)
 	end
 end
-def seed_me(hash, boro)
+def seed_me(hash, boro, geocoded)
+	geocode = geocoded
 	hash[boro].each do |camis,inspections|
 		inspections.each do |inspection|
-			Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[13], boro: inspection[2])
+			begin
+			Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[13], boro: inspection[2], lat: geocode[inspection[0].to_sym][0], long: geocode[inspection[0].to_sym][1])
+			rescue
+			Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[13], boro: inspection[2], lat: 0.00, long: 0.00)
+			end
 		end
 	end
 end
@@ -96,11 +101,18 @@ add_by_camis(rest_hash,:staten,staten)
 # rest_hash[:staten].each do |camis,inspection|
 # 	Restaurant.create(camis: inspection[0], name: inspection[1], building: inspection[3], street: inspection[4], zip: inspection[5], phone: inspection[6], cuisine: inspection[7], inspected: inspection[8], action: inspection[9], violation: inspection[10], score: inspection[11], grade: inspection[12], grade_date: inspection[2])
 # end
-seed_me(rest_hash,:manhattan)
-seed_me(rest_hash,:brooklyn)
-seed_me(rest_hash,:bronx)
-seed_me(rest_hash,:queens)
-seed_me(rest_hash,:staten)
+geocode = {}
+long_lat = File.open("/Users/macadocious/Desktop/latlong.csv","r")
+long_lat.each do |one|
+	split_up = one.split(",")
+	geocode[split_up[0].to_sym] = [split_up[4],split_up[5].gsub("\n","")]
+end
+long_lat.close
+seed_me(rest_hash,:manhattan,geocode)
+seed_me(rest_hash,:brooklyn,geocode)
+seed_me(rest_hash,:bronx,geocode)
+seed_me(rest_hash,:queens,geocode)
+seed_me(rest_hash,:staten,geocode)
 
 user = User.create(name: "A", email: "a@b.c", password: "a", password_confirmation: "a")
 

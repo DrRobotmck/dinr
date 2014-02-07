@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-01-20T11:22:28-05:00">2014-01-20T11:22:28-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-06T22:25:32-05:00">2014-02-06T22:25:32-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1301,7 +1301,7 @@
         <li class="covered" data-hits="27" data-linenumber="9">
           <span class="hits">27</span>
           
-          <code class="ruby">		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip).distinct.where(zip: zip_code).limit(2000)</code>
+          <code class="ruby">		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip,:lat,:long).distinct.where(zip: zip_code).limit(2000)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -1319,7 +1319,7 @@
         <li class="covered" data-hits="3" data-linenumber="12">
           <span class="hits">3</span>
           
-          <code class="ruby">		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip).distinct.where(&quot;LOWER(name) SIMILAR TO ?&quot;, &quot;%&quot;+name.downcase+&quot;%&quot;).limit(2000).order(camis: :asc) </code>
+          <code class="ruby">		all_rants = self.select(:name,:camis,:score,:id,:building,:street,:zip,:lat,:long).distinct.where(&quot;LOWER(name) SIMILAR TO ?&quot;, &quot;%&quot;+name.downcase+&quot;%&quot;).limit(2000).order(camis: :asc) </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
