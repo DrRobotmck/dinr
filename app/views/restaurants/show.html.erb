@@ -1,19 +1,28 @@
 <div class="restaurant row">
 
-<div class= "static_map small-6 large-6 columns">
-<div id="map-canvas"></div>
+<div class= "small-6 large-6 columns violations">
+  <form id="search" acion="<%= restaurants_path%>">
+    <input name="search" type="search" placeholder="enter zip or name" id="search-string_1"> 
+  </form>
+   <h2>Violation History</h2>
+<% @violations.each do |key, value| %>
+
+<h5 class="name"><%=key%></h5><h5 class="name "><%=value.join("|")%></h5>
+
+<%end%>
 </div>
+
+
 
 <div class="rest_info small-6 large-6 columns">
 
-  <h5>Name:</h5><h2 class="name" style=><%= @rest.camis %></h2>
+  <h5>Name:</h5><h2 class="name" style=><%= @rest.name %></h2>
   <h5>Grade</h5><h2 class="grade" style=><%= @rest.grade %></h2>
-  <h5>Points:</h5><h2 class="points" style=><%= @rest.points %></h2>
-  <h5>Inspected:</h5><h4 class="rest"style=><%= @rest.date %></h4>
-  <h5>Address: </h5><h4 class="address" style=><%= @rest.address %></h4>
+  <h5>Points:</h5><h2 class="points" style=><%= @rest.score %></h2>
+  <h5>Address: </h5><h4 class="address" style=><%= @rest.grade %></h4>
   <h5>Phone:</h5><h4 class="phone" style=>Ph: <%= @rest.phone %></h4>
 
-  <%= link_to "View All", restaurants_path, class: "links" %> 
+  <%= link_to "View All", root_path, class: "links" %> 
 
 <% if logged_in? %>
    <%= link_to 'Save to Grub List', favorite_restaurant_path(@rest), :method => :post , class: "links"%>
@@ -21,9 +30,21 @@
  <%end%>
 
 </div>
+<div class= "static_map small-12 large-12 columns">
+<div id="map-canvas">
 </div>
-
+</div>
+</div>
 <script type="text/javascript">
-  $.getJSON("/restaurants/"+<%=@rest.id%>, getMap)
+  $(function(){
+    $("#search").submit(function(e){
+      e.preventDefault();
+      window.location = '<%= restaurants_path%>?search='+$(this).find('input[name="search"]').val();
+      // getRestaurants(, placeRestaurants);
+    })
+  })
 </script>
-<%= render "singlemap"%>
+<%= render 'singlemap'%>
+<script type="text/javascript">
+  mapSingle("<%=@rest.building%><%= @rest.street%> <%= @rest.zip%>")
+</script>

@@ -1,10 +1,11 @@
 body{
-  background:url(http://farm4.staticflickr.com/3320/3196435369_120a563ca8_o.jpg);
+  /*background:url(http://farm4.staticflickr.com/3320/3196435369_120a563ca8_o.jpg);*/
+  background: rgba(255, 125, 82,1);
   font-family: 'Domine', serif;
   background-size: cover;
 }
 div.header{
-  background:rgba(34,31,31,.4);
+  background:rgba(34,31,31,.1);
   height:100px;
   border-bottom: 1px solid whitesmoke;
 }
@@ -65,15 +66,22 @@ h3.restaurant{
   color: slategrey
 }
 div.map{
-  border-radius: 5px;
-  height: 675px;
-  background: rgba(34,31,31,.3);
+  border-top: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  border-radius: 5px 5px 0 0;
+  height: 375px;
+  background: rgba(34,31,31,.1);
+}
+#gmap{
+  width: 100%;
+  height: 300px;
 }
 div.static_map{
   border-radius: 5px;
 }
 div.rest_info{
-  height:650px;
+  /*height:600px;*/
   text-align: center;
 }
 .rest_info h5, .rest_info h2, .rest_info h4{
@@ -88,10 +96,11 @@ h1.rest{
 }
 h4.rest{
   font-size: 16px;
+  color: whitesmoke;
 }
 div.user_info, div.grub_list{
   margin-top: 1em;
-  background: rgba(34,31,31,.3);
+  background: rgba(34,31,31,.1);
   height: 650px;
   overflow: scroll;
 }
@@ -118,7 +127,7 @@ h3.favorite{
 div.restaurant{
   border-radius: 5px;
   height:600px;
-  background: rgba(34,31,31,.3);
+  background: rgba(34,31,31,.1);
 }
 .label{
   margin:20px 500px 5px 30px;
@@ -127,10 +136,13 @@ div.restaurant{
   display:inline-block;
 }
 div.restaurants{
-  height: 675px;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+  height: 800px;
   overflow: scroll;
-  border-radius: 5px;
-  background: rgba(34,31,31,.3);
+  border-radius: 0 0 5px 5px;
+  background: rgba(34,31,31,.1);
   }
 .choices{
   margin-bottom: -10px;
@@ -138,19 +150,41 @@ div.restaurants{
 }
 .forms{
   margin: 8.5em auto;
-  background: rgba(34,31,31,.5)
+  /*background: rgba(34,31,31,.1)*/
 }
 .forms h2, .forms label{
   color: whitesmoke;
   text-align: center;
 }
-.each-one .links:hover{
-  color: slategrey;
+.each-one{
+  border-radius: 30px 30px 30px 30px;
+  border: 2px whitesmoke solid;
+  margin-bottom: 5px;
+}
+.each-one:hover{
+  background: rgba(255,255,255,.1);
+}
+.each-one p{
+  font-family: 'Domine', serif;
+  color: whitesmoke;
+  font-size: 20px;
 }
 #user_name, #user_email, #user_password, #user_password_confirmation, #email, #password{
-background: rgba(34,31,31,.4);
+background: rgba(34,31,31,.1);
 color: whitesmoke;
 text-align: center;
 font-size: 1.25em;
 }
-
+input#search-string_1{
+  font-family: 'Domine', serif;
+  font-size:1.5em;
+  color: whitesmoke;
+  text-align: center;
+  border:none;
+  background: rgba(34,31,31,.1);
+  border-radius: 20px;
+}
+div.violations{
+  color: whitesmoke;
+  text-align: center;
+}

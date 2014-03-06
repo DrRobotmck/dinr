@@ -7,7 +7,7 @@
   </style>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <script type="text/javascript"
-    src="http://maps.google.com/maps/api/js?sensor=false">
+    src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7">
   </script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -19,7 +19,7 @@
     <div class = "header">
       <%= link_to "din.r", root_path , class: "logo"%>
       <% unless logged_in? %>
-      <%= link_to 'Sign Up or Sign Up', new_user_path, class: "links" %>
+      <%= link_to 'Sign Up or Sign In', new_user_path, class: "links" %>
       <%end%>
       <%if logged_in? %>
       <%= link_to 'My Profile', user_path(session[:user_id]), class: "links"%>

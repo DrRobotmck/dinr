@@ -15,7 +15,7 @@
       <p>
       <h3 class="favorite"><%= faves.camis %> </h3>
       <h3 class="favorite"><%= faves.grade %></h3>
-      <h3 class="favorite"><%= faves.points %></h3>
+      <h3 class="favorite"><%= faves.score %></h3>
       <%= link_to 'View', restaurant_path(faves), class: "links_user" %>
       <%= link_to 'Remove', unfavorite_restaurant_path(faves), :method => :delete, class: "links_user" %>
       </p>  

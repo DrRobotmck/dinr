@@ -1,0 +1,4 @@
+Options -Multiviews
+PassengerResolveSymlinksInDocumentRoot on
+RailsEnv production
+SetEnv GEM_HOME /home1/mckennet/ruby/gems

@@ -11,22 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020224108) do
+ActiveRecord::Schema.define(version: 20140203234226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "restaurants", force: true do |t|
     t.string   "camis",      null: false
-    t.string   "address",    null: false
-    t.string   "phone",      null: false
-    t.date     "date",       null: false
-    t.string   "points",     null: false
+    t.string   "name",       null: false
+    t.string   "building",   null: false
+    t.string   "street",     null: false
+    t.string   "zip",        null: false
+    t.string   "phone"
+    t.string   "cuisine",    null: false
+    t.date     "inspected",  null: false
+    t.string   "action"
+    t.string   "violation"
+    t.string   "score"
     t.string   "grade"
-    t.float    "long",       null: false
-    t.float    "lat",        null: false
+    t.string   "grade_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "boro",       null: false
+    t.float    "lat"
+    t.float    "long"
   end
 
   create_table "restaurants_users", force: true do |t|
