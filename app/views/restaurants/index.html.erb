@@ -27,9 +27,9 @@
 <script type="text/javascript">
   $(function(){
     if(window.location.search.length == 0){
-      getRestaurants(<%= "10011" %>, placeRestaurants)
+      getRestaurants(<%= Geocoder.search(@a)[0].data['zipcode'] %>, placeRestaurants)
     }else if(window.location.search.length > 0){
-      getRestaurants(window.location.search.slice(-5), placeRestaurants)
+      // getRestaurants(window.location.search.slice(-5), placeRestaurants)
     }
     $("#search").submit(function(e){
       e.preventDefault();

@@ -1,12 +1,16 @@
 class RestaurantsController < ApplicationController
   
   def index
-    # zip = request.location.postal_code
-    zip = params[:search]
-    if zip == nil 
-      zip = "10011"
+    
+    @a = "208.185.23.206"
+    #@zip = request.location.postal_code
+    @zip = params[:search]
+    binding.pry
+    if @zip == nil 
+      @zip = "10011"
     end
-    @rest = Restaurant.unique(zip)
+    @rest = Restaurant.unique(@zip)
+    binding.pry
     respond_to do |format|
       format.html
       format.json{render json: @rest}
@@ -18,6 +22,7 @@ class RestaurantsController < ApplicationController
       @violations = i.get_result(@rest.camis)
       respond_to do |format|
         format.html
+        #fix variable to make map show up
         format.json{render json: lat_long}
       end
     end

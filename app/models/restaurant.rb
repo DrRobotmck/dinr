@@ -27,6 +27,7 @@ has_and_belongs_to_many :users
 			elsif !(singles.last.camis == a.camis)
 				singles.push(a)
 			end
+			binding.pry
 		end
 		
 		return singles
